@@ -1,7 +1,6 @@
 # 🛡️ AEGIS-X ULTIMATE (v8.0)
 
-**The World-Class Enterprise Host Intrusion Prevention System.**
-*Powered by eBPF (XDP), Go, and Nftables.*
+
 
 ## 👤 Author & Credits
 **Architect:** Noor
