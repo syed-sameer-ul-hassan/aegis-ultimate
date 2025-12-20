@@ -1,0 +1,14 @@
+[Unit]
+Description=AEGIS-X Ultimate IPS Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/aegisd
+Restart=always
+Environment=AEGIS_HOME=/opt/aegis
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_BPF CAP_SYS_RESOURCE
+LimitMEMLOCK=infinity
+
+[Install]
+WantedBy=multi-user.target

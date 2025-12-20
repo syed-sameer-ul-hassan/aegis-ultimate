@@ -1,0 +1,59 @@
+#!/bin/bash
+# =============================================================================
+# AEGIS-CTL | Management Utility
+# =============================================================================
+
+if [[ $EUID -ne 0 ]]; then
+   echo "Error: Must run as root (sudo aegis-ctl ...)"
+   exit 1
+fi
+
+COMMAND=$1
+TARGET=$2
+
+case $COMMAND in
+    status)
+        echo "--- DAEMON STATUS ---"
+        systemctl status aegisd | grep "Active:"
+        echo ""
+        echo "--- FIREWALL STATS ---"
+        COUNT=$(nft list set inet aegis blocklist | grep -c "elements")
+        if [ "$COUNT" -eq "0" ]; then
+            echo "Active Bans: 0"
+        else
+            # Rough count based on lines
+            REAL_COUNT=$(nft list set inet aegis blocklist | grep -c ",")
+            echo "Active Bans: $REAL_COUNT"
+        fi
+        ;;
+        
+    ban)
+        if [ -z "$TARGET" ]; then
+            echo "Usage: aegis-ctl ban <IP>"
+            exit 1
+        fi
+        nft add element inet aegis blocklist { $TARGET }
+        echo "🚫 Manually Banned: $TARGET"
+        ;;
+        
+    unban)
+        if [ -z "$TARGET" ]; then
+            echo "Usage: aegis-ctl unban <IP>"
+            exit 1
+        fi
+        nft delete element inet aegis blocklist { $TARGET }
+        echo "✅ Unbanned: $TARGET"
+        ;;
+        
+    logs)
+        journalctl -u aegisd -f
+        ;;
+        
+    list)
+        nft list set inet aegis blocklist
+        ;;
+        
+    *)
+        echo "Usage: aegis-ctl {status|ban <ip>|unban <ip>|list|logs}"
+        ;;
+esac
