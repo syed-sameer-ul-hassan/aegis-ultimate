@@ -4,6 +4,7 @@
 **Author:** Syed Sameer Ul Hassan  
 **Role:** Cybersecurity Technician  
 **Website:** [sameer.orildo.online](https://sameer.orildo.online)
+**Email:** `sameer@orildo.online`
 
 ---
 
