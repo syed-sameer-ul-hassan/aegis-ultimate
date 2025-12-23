@@ -1,6 +1,6 @@
 # 🛡️ AEGIS-X ULTIMATE (v8.0)
 
-## 👤 Author & Credits
+## Author & Credits
 **Author:** Syed Sameer Ul Hassan  
 **Role:** Cybersecurity Technician  
 **Website:** [sameer.orildo.online](https://sameer.orildo.online)
@@ -9,15 +9,15 @@
 
 ---
 
-## ☕ Support the Development
+## Support the Development
 If you like this tool and want to support me for more tools like this, **buy me a coffee bag** so I can write for all of you!
 
 **Bitcoin (BTC) Address:**
-`bc1qkp3q2vwl6lav3sczu4x5hqfks6xfpkpyagnvrk`
+`1BPGX4d4SQFmyYAqxxgvqm7HaCaNDdLeg6`
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 1. **Kernel Plane (eBPF):** RingBuffer event streaming & O(1) blocking at driver level.  
 2. **Control Plane (Go):** Multi-factor threat scoring engine.  
 3. **Enforcement (Nftables):** Atomic firewall set updates.  
@@ -25,7 +25,7 @@ If you like this tool and want to support me for more tools like this, **buy me 
 
 ---
 
-## 🚀 Installation & Usage
+## Installation & Usage
 
 ### Prerequisites
 * Linux Kernel 5.8+  
